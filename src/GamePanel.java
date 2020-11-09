@@ -92,6 +92,11 @@ public class GamePanel extends JPanel implements ActionListener {
     }
 
     public void checkApple() {
+        if ((x[0] == appleX) && y[0] == appleY) {
+            bodyParts++;
+            applesEaten++;
+            newApple();
+        }
 
     }
 
@@ -103,27 +108,27 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         }
         //check if head collides with left border
-        if(x[0] < 0){
+        if (x[0] < 0) {
             running = false;
         }
         //check if head collides with right border
-        if(x[0] > SCREEN_WIDTH){
+        if (x[0] > SCREEN_WIDTH) {
             running = false;
         }
         //check if head collides with top border
-        if(y[0] < 0){
+        if (y[0] < 0) {
             running = false;
         }
         //check if head collides bottom border
-        if(y[0] < SCREEN_HEIGHT){
+        if (y[0] < SCREEN_HEIGHT) {
             running = false;
         }
-        if(!running){
+        if (!running) {
             timer.stop();
         }
     }
 
-    public void gameOveR(Graphics g) {
+    public void gameOver(Graphics g) {
 
     }
 
@@ -140,24 +145,24 @@ public class GamePanel extends JPanel implements ActionListener {
     public class MyKeyAdapter extends KeyAdapter {
         @Override
         public void keyPressed(KeyEvent e) {
-            switch(e.getKeyCode()){
+            switch (e.getKeyCode()) {
                 case KeyEvent.VK_LEFT:
-                    if(direction != 'R'){
+                    if (direction != 'R') {
                         direction = 'L';
                     }
                     break;
                 case KeyEvent.VK_RIGHT:
-                    if(direction != 'L'){
+                    if (direction != 'L') {
                         direction = 'R';
                     }
                     break;
                 case KeyEvent.VK_UP:
-                    if(direction != 'D'){
+                    if (direction != 'D') {
                         direction = 'U';
                     }
                     break;
                 case KeyEvent.VK_DOWN:
-                    if(direction != 'U'){
+                    if (direction != 'U') {
                         direction = 'D';
                     }
                     break;
